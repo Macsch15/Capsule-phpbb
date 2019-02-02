@@ -1,0 +1,92 @@
+<!-- INCLUDECSS @macsch15_capsule/capsule.css -->
+<!-- INCLUDEJS @macsch15_capsule/js/capsule.js -->
+<!-- INCLUDE overall_header.html -->
+
+<div class="form-index-block">
+  <h1>{L_CAPSULE_TITLE}</h1>
+  <h4>{L_CAPSULE_MAXIMUM_SIZE} 4MB</h4>
+  <h4>{L_CAPSULE_ALLOWED_EXTENSIONS} .jpg, .jpeg, .gif, .png</h4>
+  <form class="form-index" id="capsule-form" enctype="multipart/form-data" method="post" action="{FORM_ROUTE}">
+    <input style="display: inline;" id="file-input" type="file" name="img" required>
+    <button type="submit" class="btn btn-primary">{L_CAPSULE_BUTTON_SEND}</button>
+
+    {S_FORM_TOKEN}
+  </form>
+</div>
+
+<!-- IF .images  -->
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th style="width: 120px">{L_CAPSULE_THUMB_TITLE}</th>
+        <th>{L_CAPSULE_NAME}</th>
+        <th style="width: 250px">{L_CAPSULE_TIME}</th>
+        <th style="width: 100px">{L_CAPSULE_SIZE}</th>
+      </tr> 
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <!-- BEGIN images -->
+        <div style="margin: 5px 0 5px 0">
+          <img width="72" src="{BOARD_URL}hosting/thumb_{images.IMG_NAME}" /><br />
+        </div>
+        <!-- END images -->
+        </td>
+        <td>
+        <!-- BEGIN images -->
+        <h5>
+          <div id="img-filename">
+            <b>
+              <a href="{BOARD_URL}hosting/{images.IMG_NAME}">
+                <!-- IF images.IMG_NAME|length > 70 -->
+                  {images.IMG_NAME|slice(0, 70)}...
+                <!-- ELSE -->
+                  {images.IMG_NAME}
+                <!-- ENDIF -->
+              </a>
+            </b>
+          </div>
+
+          <div id="img-bbcode" style="display: none">
+            <input style="width: 100%" onclick="this.select();" onmouseover="this.select();" type="text" value="[url={BOARD_URL}{IMG_FOLDER}/{images.IMG_NAME}][img]{BOARD_URL}{IMG_FOLDER}/thumb_{images.IMG_NAME}[/img][/url]" readonly>
+          </div>
+        </h5><br />
+        <!-- END images -->
+        </td>
+        <td>
+        <!-- BEGIN images -->
+        <h5>{images.IMG_TIME}</h5><br />
+        <!-- END images -->
+        </td>
+        <td>
+        <!-- BEGIN images -->
+        <h5>{images.IMG_SIZE} KB</h5><br />
+        <!-- END images -->
+        </td>
+      </tr>
+    </tbody> 
+  </table>
+
+  <div id="capsule-switch-bbcode" class="pull-right btn btn-default">
+    {L_CAPSULE_SHOW_HIDE_BBCODES}
+  </div>
+
+  <div class="action-bar top">
+    <div class="pagination">
+      {{ lang('CAPSULE_IMAGES', ALL_IMAGES_COUNT)}}
+      <!-- IF .pagination -->
+        <!-- INCLUDE pagination.html -->
+      <!-- ELSE -->
+        &bull; {PAGE_NUMBER}
+      <!-- ENDIF -->
+    </div>
+  </div>
+<!-- ELSE -->
+  <div class="alert alert-info">{L_CAPSULE_EMPTY_DB}</div>
+<!-- ENDIF -->
+<script>
+
+</script>
+
+<!-- INCLUDE overall_footer.html -->

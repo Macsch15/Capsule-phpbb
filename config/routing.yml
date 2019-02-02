@@ -1,0 +1,7 @@
+macsch15_capsule_main_controller:
+    path: /image-hosting
+    defaults: { _controller: macsch15.capsule.controller:display }
+
+macsch15_capsule_main_controller_action:
+    path: /image-hosting/overview
+    defaults: { _controller: macsch15.capsule.controller:process }

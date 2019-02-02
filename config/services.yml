@@ -1,0 +1,23 @@
+services:
+    macsch15.capsule.controller:
+        class: macsch15\capsule\controller\controller
+        arguments:
+            - '@config'
+            - '@request'
+            - '@dbal.conn'
+            - '@pagination'
+            - '@template'
+            - '@controller.helper'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'
+            - '%core.table_prefix%'
+
+    macsch15.capsule.listener:
+        class: macsch15\capsule\event\listener
+        arguments:
+            - @controller.helper
+            - @template
+        tags:
+            - { name: event.listener }
+
