@@ -2,10 +2,12 @@
 
 Capsule is a local image hosting for phpBB 3.1.x and phpBB 3.2.x
 
-###Requirements
+![Capsule preview](https://raw.githubusercontent.com/Macsch15/Capsule-phpbb/master/preview.png)
+
+## Requirements
 - PHP 5.5 or later
 
-# Installation
+## Installation
 
 Download repository from GitHub and paste in:
 ```
@@ -14,14 +16,14 @@ path/to/phpbb/ext/macsch15/capsule
 
 Then go to ACP -> Customize -> Manage Extensions -> Capsule -> Enable
 
-# To-Do list
+## To-Do list
 - [ ] prosilver theme support
 - [ ] ACL's
 - [ ] Tests
 - [ ] Upload from URL
 - [ ] ACP user-friendly settings
 
-###MIT Licence
+## MIT Licence
 
 Copyright (c) 2019 Maciej Schmidt
 
