@@ -16,7 +16,21 @@ path/to/phpbb/ext/macsch15/capsule
 
 Then go to ACP -> Customize -> Manage Extensions -> Capsule -> Enable
 
+## Configuration
+For now, configuration is localed at **controller/controller.php**.
+
+```php
+    const UPLOAD_FOLDER = 'hosting';
+    const ALLOWED_MIME = ['image/gif', 'image/jpeg', 'image/png'];
+    const ALLOWED_EXTENSION = ['.jpeg', '.png', '.gif', '.jpg', '.JPEG', '.PNG', '.GIF', '.JPG'];
+    const MAX_SIZE = 5242880;
+    const IMAGE_NAME_REMOVE_REGEX = '/[^A-Za-z0-9_\-\.]/i';
+    const IMAGES_PER_PAGE = 5;
+```
+
+
 ## To-Do list
+- [ ] Configuration
 - [ ] prosilver theme support
 - [ ] ACL's
 - [ ] Tests
